@@ -2,14 +2,14 @@
   "schema": 1,
   "releases": [
     {
-      "tag_name": "v0.9.22",
-      "body": "修复学校一键导入在周次尚未加载完整时提前失败的问题；等待周次、日期与课程加载，忽略隐藏旧课表，页面跳转后丢弃过期回调。",
+      "tag_name": "v0.9.23",
+      "body": "课表单点直接编辑，长按直接进入多选并选中当前课程；点选其他课程后统一删除。简化为取消、全选、删除数量三个操作，保留查看位置。",
       "assets": [
         {
-          "name": "RainReminder-0.9.22-test.apk",
-          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.22/RainReminder-0.9.22-test.apk",
+          "name": "RainReminder-0.9.23-test.apk",
+          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.23/RainReminder-0.9.23-test.apk",
           "size": 21449630,
-          "digest": "sha256:eb037b58febc00505c2ea5276c1636f4fec92c760118b32bfbe4b1cc5d24db3f"
+          "digest": "sha256:e7717d8dd1f2e5d8a031562512b613a7192dc7f93742e6df8bd319e00f192211"
         }
       ]
     }
