@@ -2,14 +2,14 @@
   "schema": 1,
   "releases": [
     {
-      "tag_name": "v0.9.15",
-      "body": "学校登录后自动进入个人中心读取课表；考试自动打开入口、查询并读取分页结果，核对后保存，无需手动找页面。支持取消、超时及未公布考试提示。",
+      "tag_name": "v0.9.16",
+      "body": "提高周课表左右滑动灵敏度：支持更短距离、略斜横滑和快速轻甩；保留上下滚动、点击及长按，防止双指或取消手势误切周。",
       "assets": [
         {
-          "name": "RainReminder-0.9.15-test.apk",
-          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.15/RainReminder-0.9.15-test.apk",
+          "name": "RainReminder-0.9.16-test.apk",
+          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.16/RainReminder-0.9.16-test.apk",
           "size": 21445534,
-          "digest": "sha256:8ca8e8dde9c7eca3eba0635857ceddc83b969c79a3bb72f494ec0ddc8d4dab3b"
+          "digest": "sha256:de33b82326d1df83358b16cc6f2bbf17ee3be681b9523621dbdb7eb3817946b2"
         }
       ]
     }
