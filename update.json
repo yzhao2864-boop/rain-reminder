@@ -2,14 +2,14 @@
   "schema": 1,
   "releases": [
     {
-      "tag_name": "v0.9.9",
-      "body": "小组件新增两个明确入口：刷新课表更新本机显示，刷新作业打开应用自动检查最新作业；检查中禁用重复点击，失败保留上次结果，小尺寸显示优化。",
+      "tag_name": "v0.9.10",
+      "body": "新增底部“我的”页面，集中个人昵称、登录退出、提醒设置、小组件与应用更新入口，作业页更简洁。",
       "assets": [
         {
-          "name": "RainReminder-0.9.9-test.apk",
-          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.9/RainReminder-0.9.9-test.apk",
-          "size": 21420601,
-          "digest": "sha256:6a5f5dc33a6d08d3984f25e0b969280094b2f4f550be4ec4e35d85e14fe5c434"
+          "name": "RainReminder-0.9.10-test.apk",
+          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.10/RainReminder-0.9.10-test.apk",
+          "size": 21424697,
+          "digest": "sha256:465e65053f4e16b2401617ed16836c2931258af5552bda196950ede61c357034"
         }
       ]
     }
