@@ -2,14 +2,14 @@
   "schema": 1,
   "releases": [
     {
-      "tag_name": "v0.9.7",
-      "body": "自动识别课表日期并连续导入；长按课程支持多选删除。",
+      "tag_name": "v0.9.8",
+      "body": "新增应用内更新：自动检查新版、显示下载进度、校验安装包并打开系统安装页面；重整作业首页和独立设置页，压缩课表核对卡片。",
       "assets": [
         {
-          "name": "RainReminder-0.9.7-test.apk",
-          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.7/RainReminder-0.9.7-test.apk",
-          "size": 21408237,
-          "digest": "sha256:5206156a4610688870465b80112bdbd7ab328f3ecb4735dc38ef010cbdcf9574"
+          "name": "RainReminder-0.9.8-test.apk",
+          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.8/RainReminder-0.9.8-test.apk",
+          "size": 21420525,
+          "digest": "sha256:ab3fe16d3ce67badda08be3ae2f9598fb0dfff688bbd1f9c4196ac77f07f6f27"
         }
       ]
     }
