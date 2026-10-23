@@ -2,14 +2,14 @@
   "schema": 1,
   "releases": [
     {
-      "tag_name": "v0.9.14",
-      "body": "修复学校登录页需要滑动寻找登录框：手机宽度自适应，登录框置顶，隐藏装饰背景；保留官方表单和验证码，登录后恢复底部读取按钮。",
+      "tag_name": "v0.9.15",
+      "body": "学校登录后自动进入个人中心读取课表；考试自动打开入口、查询并读取分页结果，核对后保存，无需手动找页面。支持取消、超时及未公布考试提示。",
       "assets": [
         {
-          "name": "RainReminder-0.9.14-test.apk",
-          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.14/RainReminder-0.9.14-test.apk",
-          "size": 21441366,
-          "digest": "sha256:339fb7a4d7f155eb7ae68d50266100f3b23622083be3730c2a8c2ea0f37dbb2b"
+          "name": "RainReminder-0.9.15-test.apk",
+          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.15/RainReminder-0.9.15-test.apk",
+          "size": 21445534,
+          "digest": "sha256:8ca8e8dde9c7eca3eba0635857ceddc83b969c79a3bb72f494ec0ddc8d4dab3b"
         }
       ]
     }
