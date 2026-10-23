@@ -2,14 +2,14 @@
   "schema": 1,
   "releases": [
     {
-      "tag_name": "v0.9.8",
-      "body": "新增应用内更新：自动检查新版、显示下载进度、校验安装包并打开系统安装页面；重整作业首页和独立设置页，压缩课表核对卡片。",
+      "tag_name": "v0.9.9",
+      "body": "小组件新增两个明确入口：刷新课表更新本机显示，刷新作业打开应用自动检查最新作业；检查中禁用重复点击，失败保留上次结果，小尺寸显示优化。",
       "assets": [
         {
-          "name": "RainReminder-0.9.8-test.apk",
-          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.8/RainReminder-0.9.8-test.apk",
-          "size": 21420525,
-          "digest": "sha256:ab3fe16d3ce67badda08be3ae2f9598fb0dfff688bbd1f9c4196ac77f07f6f27"
+          "name": "RainReminder-0.9.9-test.apk",
+          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.9/RainReminder-0.9.9-test.apk",
+          "size": 21420601,
+          "digest": "sha256:6a5f5dc33a6d08d3984f25e0b969280094b2f4f550be4ec4e35d85e14fe5c434"
         }
       ]
     }
