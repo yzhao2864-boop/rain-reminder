@@ -2,14 +2,14 @@
   "schema": 1,
   "releases": [
     {
-      "tag_name": "v0.9.10",
-      "body": "新增底部“我的”页面，集中个人昵称、登录退出、提醒设置、小组件与应用更新入口，作业页更简洁。",
+      "tag_name": "v0.9.11",
+      "body": "头像和名字默认继承当前雨课堂账号，支持修改名字、从相册更换头像及恢复默认；同步保留自定义设置，退出和切换账号清理旧资料。",
       "assets": [
         {
-          "name": "RainReminder-0.9.10-test.apk",
-          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.10/RainReminder-0.9.10-test.apk",
-          "size": 21424697,
-          "digest": "sha256:465e65053f4e16b2401617ed16836c2931258af5552bda196950ede61c357034"
+          "name": "RainReminder-0.9.11-test.apk",
+          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.11/RainReminder-0.9.11-test.apk",
+          "size": 21428793,
+          "digest": "sha256:b61f32e59e08e93d5ca62779518f508bf023f1efd308e7152618fb195f79fa9d"
         }
       ]
     }
