@@ -2,14 +2,14 @@
   "schema": 1,
   "releases": [
     {
-      "tag_name": "v0.9.12",
-      "body": "新增华农学校账号课表直导、手动查询导入已公布考试；小组件刷新作业改为后台检查，成功不跳转，失败保留结果并提供处理入口。",
+      "tag_name": "v0.9.13",
+      "body": "重新整理界面：作业与考试首页页签切换；学校导入与截图导入分开；学校页面读取按钮固定底部。考试列表按时间排序，支持修改提醒及删除。",
       "assets": [
         {
-          "name": "RainReminder-0.9.12-test.apk",
-          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.12/RainReminder-0.9.12-test.apk",
-          "size": 21437195,
-          "digest": "sha256:8c5d0233f00b1f8c1442c199dedc964ba691afa1a272dbaa1b6a19afc52ba66e"
+          "name": "RainReminder-0.9.13-test.apk",
+          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.13/RainReminder-0.9.13-test.apk",
+          "size": 21441291,
+          "digest": "sha256:735f2ce5e71eb95862cbbe8263d2794d8626495115d615ddff84efcc00fafb04"
         }
       ]
     }
