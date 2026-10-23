@@ -2,14 +2,14 @@
   "schema": 1,
   "releases": [
     {
-      "tag_name": "v0.9.19",
-      "body": "修复相同课程被误判：忽略隐藏格式字符，统一教室编号常见识别混淆；按实际重复日期比较。真正不同的课程明确列出差异，只核对新增和有差异的课程。",
+      "tag_name": "v0.9.20",
+      "body": "修复截图底部不完整时第11节被错算成第12节，《诗经》按原图19:00–21:25导入；纠正四綜/四综教室识别，更新晚课默认节次时间，保留自定义时间和已有课程。",
       "assets": [
         {
-          "name": "RainReminder-0.9.19-test.apk",
-          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.19/RainReminder-0.9.19-test.apk",
+          "name": "RainReminder-0.9.20-test.apk",
+          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.20/RainReminder-0.9.20-test.apk",
           "size": 21449630,
-          "digest": "sha256:ef140b465fc4957215f99290341feba88dcceb98aeda9f1d2b3f7d1b6773a1b3"
+          "digest": "sha256:9830e58fd48d2cbeda31ad151205ac5c4e59051d48fc8020cf8f76e1f6ee8ea7"
         }
       ]
     }
