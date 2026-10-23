@@ -2,14 +2,14 @@
   "schema": 1,
   "releases": [
     {
-      "tag_name": "v0.9.16",
-      "body": "提高周课表左右滑动灵敏度：支持更短距离、略斜横滑和快速轻甩；保留上下滚动、点击及长按，防止双指或取消手势误切周。",
+      "tag_name": "v0.9.17",
+      "body": "同周截图不再整周跳过：逐门对比现有课表，相同项去重，缺课可补充；差异显示旧课供核对，保留原课程和提醒设置。支持多张同周截图合并。",
       "assets": [
         {
-          "name": "RainReminder-0.9.16-test.apk",
-          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.16/RainReminder-0.9.16-test.apk",
-          "size": 21445534,
-          "digest": "sha256:de33b82326d1df83358b16cc6f2bbf17ee3be681b9523621dbdb7eb3817946b2"
+          "name": "RainReminder-0.9.17-test.apk",
+          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.17/RainReminder-0.9.17-test.apk",
+          "size": 21449630,
+          "digest": "sha256:f16923179c1710e515f1368ff1b4fece3ff480dcb0d56328621022e3e0fcd832"
         }
       ]
     }
