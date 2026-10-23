@@ -2,14 +2,14 @@
   "schema": 1,
   "releases": [
     {
-      "tag_name": "v0.9.18",
-      "body": "核对页只显示新增课程及差异候选，已存在和本批重复课程自动隐藏跳过；全部相同时显示没有新增课程。",
+      "tag_name": "v0.9.19",
+      "body": "修复相同课程被误判：忽略隐藏格式字符，统一教室编号常见识别混淆；按实际重复日期比较。真正不同的课程明确列出差异，只核对新增和有差异的课程。",
       "assets": [
         {
-          "name": "RainReminder-0.9.18-test.apk",
-          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.18/RainReminder-0.9.18-test.apk",
+          "name": "RainReminder-0.9.19-test.apk",
+          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.19/RainReminder-0.9.19-test.apk",
           "size": 21449630,
-          "digest": "sha256:f0e507b4d618835a2fd72bc39db36574f42321abcbb10b0d9a92be6d9caddad4"
+          "digest": "sha256:ef140b465fc4957215f99290341feba88dcceb98aeda9f1d2b3f7d1b6773a1b3"
         }
       ]
     }
