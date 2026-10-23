@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "releases": [
+    {
+      "tag_name": "v0.9.7",
+      "body": "自动识别课表日期并连续导入；长按课程支持多选删除。",
+      "assets": [
+        {
+          "name": "RainReminder-0.9.7-test.apk",
+          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.7/RainReminder-0.9.7-test.apk",
+          "size": 21408237,
+          "digest": "sha256:5206156a4610688870465b80112bdbd7ab328f3ecb4735dc38ef010cbdcf9574"
+        }
+      ]
+    }
+  ]
+}
