@@ -2,14 +2,14 @@
   "schema": 1,
   "releases": [
     {
-      "tag_name": "v0.9.23",
-      "body": "课表单点直接编辑，长按直接进入多选并选中当前课程；点选其他课程后统一删除。简化为取消、全选、删除数量三个操作，保留查看位置。",
+      "tag_name": "v0.9.26",
+      "body": "打开应用自动提示新版；修复作业截止日期识别、显示和排序；补充列表加载恢复与失败原因提示。",
       "assets": [
         {
-          "name": "RainReminder-0.9.23-test.apk",
-          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.23/RainReminder-0.9.23-test.apk",
-          "size": 21449630,
-          "digest": "sha256:e7717d8dd1f2e5d8a031562512b613a7192dc7f93742e6df8bd319e00f192211"
+          "name": "RainReminder-0.9.26-test.apk",
+          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.26/RainReminder-0.9.26-test.apk",
+          "size": 21453726,
+          "digest": "sha256:5e9538ba78d11857c325e06c318573f6bb685f8a01900700d7c138164346f5b5"
         }
       ]
     }
