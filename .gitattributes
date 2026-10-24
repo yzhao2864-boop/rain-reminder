@@ -1,0 +1,11 @@
+* text=auto
+*.java text eol=lf
+*.js text eol=lf
+*.xml text eol=lf
+*.ps1 text eol=crlf
+*.md text eol=lf
+*.so binary
+*.jar binary
+*.onnx binary
+*.ttf binary
+*.traineddata binary

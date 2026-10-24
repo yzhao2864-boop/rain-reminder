@@ -1,0 +1,5 @@
+<network-security-config>
+ <base-config cleartextTrafficPermitted="false"/>
+ <!-- The school's own authenticated exam link currently targets this legacy HTTP host. -->
+ <domain-config cleartextTrafficPermitted="true"><domain includeSubdomains="false">byjxyt.hzau.edu.cn</domain></domain-config>
+</network-security-config>

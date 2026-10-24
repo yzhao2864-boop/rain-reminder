@@ -1,0 +1,13 @@
+.local/
+work/
+outputs/
+*.apk
+*.idsig
+*.keystore
+*.jks
+*.p12
+*.pfx
+*.pem
+.env
+.env.*
+local.properties

@@ -1,0 +1,27 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="cn.local.rainreminder" android:versionCode="33" android:versionName="0.9.23">
+ <uses-sdk android:minSdkVersion="28" android:targetSdkVersion="35"/>
+ <uses-permission android:name="android.permission.INTERNET"/>
+ <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+ <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+ <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+ <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
+ <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+ <application android:label="待课" android:icon="@drawable/icon" android:theme="@style/AppTheme" android:allowBackup="false" android:usesCleartextTraffic="false" android:networkSecurityConfig="@xml/network_security" android:supportsRtl="true" android:extractNativeLibs="true">
+  <activity android:name=".MainActivity" android:exported="true" android:configChanges="orientation|screenSize" android:windowSoftInputMode="adjustResize">
+   <intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter>
+  </activity>
+  <activity android:name=".SettingsActivity" android:exported="false"/>
+  <activity android:name=".ProfileActivity" android:exported="false"/>
+  <activity android:name=".UpdateActivity" android:exported="false"/>
+  <provider android:name=".UpdateProvider" android:authorities="cn.local.rainreminder.updates" android:exported="false" android:grantUriPermissions="true"/>
+  <service android:name=".DailyJob" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="true"/>
+  <service android:name=".ClassWatchJob" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="true"/>
+  <activity android:name=".AgendaActivity" android:exported="false" android:configChanges="orientation|screenSize"/>
+  <activity android:name=".SchoolImportActivity" android:exported="false" android:windowSoftInputMode="adjustResize"/>
+  <service android:name=".WidgetCheckJob" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="true"/>
+  <activity android:name=".ImportActivity" android:exported="false" android:configChanges="orientation|screenSize"/>
+  <receiver android:name=".RainWidget" android:exported="false" android:label="@string/widget_name"><intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE"/></intent-filter><meta-data android:name="android.appwidget.provider" android:resource="@xml/rain_widget_info"/></receiver>
+  <receiver android:name=".AgendaReceiver" android:exported="false"/>
+  <receiver android:name=".BootReceiver" android:exported="false"><intent-filter><action android:name="android.intent.action.BOOT_COMPLETED"/><action android:name="android.intent.action.TIME_SET"/><action android:name="android.intent.action.TIMEZONE_CHANGED"/><action android:name="android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED"/></intent-filter></receiver>
+ </application>
+</manifest>
