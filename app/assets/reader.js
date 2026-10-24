@@ -46,10 +46,20 @@
       var active=Array.from(d.querySelectorAll('.el-tab-pane.unfinished')).filter(visible);
       if(active.length)scopes=scopes.concat(active);
     }
-    if(!scopes.length)return JSON.stringify({wait:true});
+    if(!scopes.length){
+      // Some WebView loads ignore tab=unfinished. Navigate explicitly rather
+      // than polling a hidden pane forever. Never read the learning log instead.
+      var unfinished=exact('未完成');
+      if(unfinished){
+        var nav=unfinished.closest('.rain-tabs__nav-item, [role="tab"]')||unfinished.parentElement;
+        var selected=nav&&(nav.getAttribute('aria-selected')==='true'||/(?:--active|\bis-active\b)/.test(nav.className||''));
+        if(!selected){unfinished.click();return JSON.stringify({wait:true,reason:'switching_unfinished'});}
+      }
+      return JSON.stringify({wait:true,reason:unfinished?'unfinished_loading':'unfinished_missing'});
+    }
     text=scopes.map(function(s){return s.innerText;}).join('\n');
-    if (/正在加载|加载中/.test(text)) return JSON.stringify({wait:true});
-    if(!/全部待办/.test(text)) return JSON.stringify({wait:true});
+    if (/正在加载|加载中/.test(text)) return JSON.stringify({wait:true,reason:'list_loading'});
+    if(!/全部待办/.test(text)) return JSON.stringify({wait:true,reason:'count_missing'});
     var found=[],unknown=0,total=0,hasMore=false;
     for(var d of scopes){
       var rows=Array.from(d.querySelectorAll('li.unfinished-study__item'));

@@ -17,7 +17,7 @@ final class Scanner {
  static final String USER_AGENT="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36";
  final Context context;final Listener listener;final boolean background;
  final Handler handler=new Handler(Looper.getMainLooper());
- WebView web;String script;JSONArray courses=new JSONArray(),tasks=new JSONArray();int course=0,tries=0;volatile boolean stopped=false;long start;
+ WebView web;String script;JSONArray courses=new JSONArray(),tasks=new JSONArray();int course=0,tries=0;boolean reloaded=false;volatile boolean stopped=false;long start;
  Scanner(Context c,Listener l,boolean bg){context=c;listener=l;background=bg;}
  @SuppressWarnings("SetJavaScriptEnabled") static void configure(WebView w){
   WebSettings s=w.getSettings();s.setJavaScriptEnabled(true);s.setDomStorageEnabled(true);s.setAllowFileAccess(false);s.setAllowContentAccess(false);s.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
@@ -37,7 +37,7 @@ final class Scanner {
   listener.progress("正在通过接口获取学生课程…");
   new Thread(()->{try{JSONArray list=CourseApi.list();handler.post(()->{if(stopped)return;Store.prefs(context).edit().putString("course_names",list.toString()).apply();courses=list;loadCourse();});}catch(Exception e){handler.post(()->finish(false,e.getMessage()==null?"课程接口读取失败":e.getMessage()));}},"course-list").start();
  }
- void loadCourse(){if(stopped)return;try{JSONObject c=courses.getJSONObject(course);listener.progress("正在检查 "+(course+1)+"/"+courses.length()+" · "+c.getString("title"));web.loadUrl(c.getString("url"));step("read",2000);}catch(Exception e){finish(false,"课程导航信息无效");}}
+ void loadCourse(){if(stopped)return;tries=0;reloaded=false;try{JSONObject c=courses.getJSONObject(course);listener.progress("正在检查 "+(course+1)+"/"+courses.length()+" · "+c.getString("title"));web.loadUrl(c.getString("url"));step("read",2000);}catch(Exception e){finish(false,"课程导航信息无效");}}
  static boolean allowed(String u){try{android.net.Uri p=android.net.Uri.parse(u);return "https".equals(p.getScheme())&&"changjiang.yuketang.cn".equals(p.getHost());}catch(Exception e){return false;}}
  void step(String mode,long delay){handler.postDelayed(()->run(mode),delay);}
  void run(String mode){
@@ -52,7 +52,11 @@ final class Scanner {
    try{
     Object decoded=new JSONTokener(raw).nextValue();JSONObject result=new JSONObject(String.valueOf(decoded));
     if(result.has("error")){finish(false,result.getString("error"));return;}
-    if(result.optBoolean("wait")){if(++tries>35){finish(false,"页面未能显示完整列表（"+mode+"），请先手动登录并确认网页版可用");return;}step(mode,1000);return;}
+    if(result.optBoolean("wait")){
+     if(++tries>35){String reason=result.optString("reason");String cause="unfinished_missing".equals(reason)?"未找到未完成入口，页面可能发生变化":"count_missing".equals(reason)?"未显示待办总数，暂不能确认列表完整":"未完成列表加载超时，请检查网络后重试";finish(false,courses.getJSONObject(course).optString("title","当前课程")+"："+cause+"；上次结果已保留");return;}
+     if(mode.equals("read")&&tries==18&&!reloaded){reloaded=true;listener.progress("页面加载较慢，正在重试 "+(course+1)+"/"+courses.length());web.reload();step(mode,2000);return;}
+     step(mode,1000);return;
+    }
     tries=0;
     if(mode.equals("courses")){
      courses=result.getJSONArray("courses");if(courses.length()==0){finish(false,"未找到课程，无法确认作业状态");return;}
