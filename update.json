@@ -2,14 +2,14 @@
   "schema": 1,
   "releases": [
     {
-      "tag_name": "v0.9.26",
-      "body": "打开应用自动提示新版；修复作业截止日期识别、显示和排序；补充列表加载恢复与失败原因提示。",
+      "tag_name": "v0.9.27",
+      "body": "桌面组件支持作业优先、课表优先、只显示作业、只显示课表；每个组件可以单独设置，右上角⋯可调整。",
       "assets": [
         {
-          "name": "RainReminder-0.9.26-test.apk",
-          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.26/RainReminder-0.9.26-test.apk",
-          "size": 21453726,
-          "digest": "sha256:5e9538ba78d11857c325e06c318573f6bb685f8a01900700d7c138164346f5b5"
+          "name": "RainReminder-0.9.27-test.apk",
+          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.27/RainReminder-0.9.27-test.apk",
+          "size": 21457822,
+          "digest": "sha256:4b775ca65b3bb3a2739eebd9330b88476ff8b648f37be7a184e976223abf1d86"
         }
       ]
     }
