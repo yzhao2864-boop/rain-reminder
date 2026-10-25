@@ -1,7 +1,9 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/widget_root" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:padding="12dp" android:background="@drawable/widget_background">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+<LinearLayout android:id="@+id/widget_root" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:padding="12dp" android:background="@drawable/widget_background">
  <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical">
   <TextView android:id="@+id/widget_heading" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="今日安排" android:textColor="#215C52" android:textSize="16sp" android:textStyle="bold" android:fontFamily="@font/ui" android:includeFontPadding="false" android:maxLines="1" android:ellipsize="end"/>
   <TextView android:id="@+id/widget_refresh" android:layout_width="68dp" android:layout_height="32dp" android:gravity="center" android:text="刷新课表" android:textSize="11sp" android:textColor="#215C52" android:fontFamily="@font/ui" android:includeFontPadding="false" android:background="@drawable/widget_action" android:contentDescription="刷新课表：更新本机课程和日程显示"/>
+
   <TextView android:id="@+id/widget_settings" android:layout_width="32dp" android:layout_height="32dp" android:gravity="center" android:text="⋯" android:textSize="20sp" android:textColor="#215C52" android:contentDescription="小组件显示设置"/>
  </LinearLayout>
  <TextView android:id="@+id/widget_date" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="打开应用导入课表" android:textSize="10sp" android:textColor="#61736B" android:fontFamily="@font/ui" android:includeFontPadding="false" android:maxLines="1" android:ellipsize="end" android:layout_marginBottom="5dp"/>
@@ -13,6 +15,7 @@
   <TextView android:id="@+id/widget_day_today" android:layout_width="40dp" android:layout_height="match_parent" android:gravity="center" android:text="今天" android:textSize="11sp" android:textColor="#215C52" android:contentDescription="回到今天"/>
   <TextView android:id="@+id/widget_day_next" android:layout_width="30dp" android:layout_height="match_parent" android:gravity="center" android:text="&gt;" android:textSize="18sp" android:fontFamily="@font/ui" android:includeFontPadding="false" android:textColor="#215C52" android:contentDescription="后一天"/>
  </LinearLayout>
+ <ListView android:id="@+id/widget_day_pages" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:divider="@android:color/transparent" android:dividerHeight="8dp" android:scrollbars="vertical" android:visibility="gone"/>
  <ImageView android:id="@+id/widget_day_grid" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:scaleType="fitXY" android:contentDescription="当天课表，点击打开课表" android:visibility="gone"/>
  <LinearLayout android:id="@+id/widget_footer" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingTop="6dp">
  <LinearLayout android:id="@+id/widget_homework_area" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginEnd="6dp">
@@ -23,3 +26,20 @@
  <TextView android:id="@+id/widget_check_homework" android:layout_width="68dp" android:layout_height="36dp" android:gravity="center" android:text="刷新作业" android:textSize="11sp" android:textColor="#215C52" android:fontFamily="@font/ui" android:includeFontPadding="false" android:background="@drawable/widget_action" android:contentDescription="刷新作业：打开应用并联网检查最新作业"/>
  </LinearLayout>
 </LinearLayout>
+
+ <LinearLayout android:id="@+id/widget_menu" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_gravity="top|end" android:layout_margin="6dp" android:orientation="vertical" android:padding="8dp" android:elevation="8dp" android:background="@drawable/widget_background" android:visibility="gone">
+  <LinearLayout android:layout_width="match_parent" android:layout_height="28dp" android:gravity="center_vertical">
+   <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="切换显示" android:textSize="13sp" android:textColor="#215C52" android:fontFamily="@font/ui"/>
+   <TextView android:id="@+id/widget_menu_close" android:layout_width="32dp" android:layout_height="match_parent" android:gravity="center" android:text="×" android:textSize="20sp" android:textColor="#215C52" android:contentDescription="关闭切换选项"/>
+  </LinearLayout>
+ <LinearLayout android:id="@+id/widget_modes" android:layout_width="match_parent" android:layout_height="36dp" android:orientation="horizontal" android:layout_marginTop="4dp" android:layout_marginBottom="4dp">
+  <TextView android:id="@+id/widget_mode_homework_first" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:gravity="center" android:text="作业优先" android:textSize="11sp" android:fontFamily="@font/ui" android:includeFontPadding="false" android:maxLines="1" android:textColor="#61736B" android:layout_marginEnd="2dp"/>
+  <TextView android:id="@+id/widget_mode_schedule_first" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:gravity="center" android:text="课表优先" android:textSize="11sp" android:fontFamily="@font/ui" android:includeFontPadding="false" android:maxLines="1" android:textColor="#61736B" android:layout_marginEnd="2dp"/>
+  <TextView android:id="@+id/widget_mode_homework_only" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:gravity="center" android:text="仅作业" android:textSize="11sp" android:fontFamily="@font/ui" android:includeFontPadding="false" android:maxLines="1" android:textColor="#61736B" android:layout_marginEnd="2dp"/>
+  <TextView android:id="@+id/widget_mode_schedule_only" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:gravity="center" android:text="仅课表" android:textSize="11sp" android:fontFamily="@font/ui" android:includeFontPadding="false" android:maxLines="1" android:textColor="#61736B" android:layout_marginEnd="2dp"/>
+ </LinearLayout>
+
+  <TextView android:id="@+id/widget_style_switch" android:layout_width="match_parent" android:layout_height="32dp" android:gravity="center" android:text="课表格" android:textSize="11sp" android:textColor="#215C52" android:fontFamily="@font/ui" android:includeFontPadding="false" android:visibility="gone"/>
+  <TextView android:id="@+id/widget_more_settings" android:layout_width="match_parent" android:layout_height="28dp" android:text="更多设置" android:gravity="center" android:textSize="11sp" android:textColor="#61736B" android:fontFamily="@font/ui"/>
+ </LinearLayout>
+</FrameLayout>

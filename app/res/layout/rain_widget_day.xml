@@ -1,0 +1,4 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/widget_day_card" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/widget_row_background">
+ <TextView android:id="@+id/widget_day_card_date" android:layout_width="match_parent" android:layout_height="28dp" android:gravity="center_vertical" android:paddingStart="8dp" android:textSize="12sp" android:textStyle="bold" android:textColor="#215C52" android:fontFamily="@font/ui" android:includeFontPadding="false"/>
+ <ImageView android:id="@+id/widget_day_card_grid" android:layout_width="match_parent" android:layout_height="wrap_content" android:adjustViewBounds="true" android:scaleType="fitCenter"/>
+</LinearLayout>
