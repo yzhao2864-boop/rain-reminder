@@ -1,4 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="cn.local.rainreminder" android:versionCode="37" android:versionName="0.9.27">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="cn.local.rainreminder" android:versionCode="38" android:versionName="0.9.28">
  <uses-sdk android:minSdkVersion="28" android:targetSdkVersion="35"/>
  <uses-permission android:name="android.permission.INTERNET"/>
  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -19,6 +19,7 @@
   <service android:name=".ClassWatchJob" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="true"/>
   <activity android:name=".AgendaActivity" android:exported="false" android:configChanges="orientation|screenSize"/>
   <activity android:name=".SchoolImportActivity" android:exported="false" android:windowSoftInputMode="adjustResize"/>
+  <service android:name=".WidgetListService" android:permission="android.permission.BIND_REMOTEVIEWS" android:exported="false"/>
   <service android:name=".WidgetCheckJob" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="true"/>
   <activity android:name=".ImportActivity" android:exported="false" android:configChanges="orientation|screenSize"/>
   <receiver android:name=".RainWidget" android:exported="false" android:label="@string/widget_name"><intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE"/></intent-filter><meta-data android:name="android.appwidget.provider" android:resource="@xml/rain_widget_info"/></receiver>
