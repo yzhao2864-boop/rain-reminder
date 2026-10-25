@@ -2,14 +2,14 @@
   "schema": 1,
   "releases": [
     {
-      "tag_name": "v0.9.27",
-      "body": "桌面组件支持作业优先、课表优先、只显示作业、只显示课表；每个组件可以单独设置，右上角⋯可调整。",
+      "tag_name": "v0.9.28",
+      "body": "新增可上下滑动的作业和课程列表，两个区域独立；支持单日课表格及日期切换。作业可移到底部淡化并从小组件隐藏，支持恢复。",
       "assets": [
         {
-          "name": "RainReminder-0.9.27-test.apk",
-          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.27/RainReminder-0.9.27-test.apk",
-          "size": 21457822,
-          "digest": "sha256:4b775ca65b3bb3a2739eebd9330b88476ff8b648f37be7a184e976223abf1d86"
+          "name": "RainReminder-0.9.28-test.apk",
+          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.28/RainReminder-0.9.28-test.apk",
+          "size": 21466014,
+          "digest": "sha256:53c6fc72d909ace312974a1a79164c9b662fa9c6565d15425b97351603dcc321"
         }
       ]
     }
