@@ -1,1 +1,1 @@
-<resources><string name="widget_name">待课 · 今日安排</string><string name="widget_description">课程时间、下一节安排和本机缓存作业，可调整大小，点击进入课表或作业。</string></resources>
+<resources><string name="widget_name">待课 · 作业与课表</string><string name="widget_description">作业优先、课表优先或只显示一种内容，每个组件可单独选择，可调整大小。</string></resources>
