@@ -8,7 +8,7 @@ final class WidgetLists {
   List<RemoteViews> out=new ArrayList<>();
   if(homework){JSONArray tasks=Deadlines.sorted(HomeworkDisplay.visible(c));for(int n=0;n<tasks.length();n++){JSONObject t=tasks.optJSONObject(n);if(t!=null)out.add(row(c,t.optString("title"),Deadlines.label(t)+" · "+t.optString("course"),0));}
    if(out.isEmpty())out.add(row(c,Store.prefs(c).getLong("last",0)>0?"暂无需要显示的作业":"登录后查看作业","点击进入作业页",0));
-  }else{java.time.LocalDate date=WidgetOptions.date(c,id,now);for(WeekTable.Item item:WidgetDayTable.items(c,date))out.add(row(c,item.event.optString("title"),WidgetData.detail(item,now),date.toEpochDay()));if(out.isEmpty())out.add(row(c,"这一天没有课程",date.toString(),date.toEpochDay()));}
+  }else{java.time.LocalDate date=WidgetOptions.date(c,id,now);for(WeekTable.Item item:WidgetDayTable.items(c,date,now))out.add(row(c,item.event.optString("title"),WidgetData.detail(item,now),date.toEpochDay()));if(out.isEmpty())out.add(row(c,"这一天没有待上课程",date.toString(),date.toEpochDay()));}
 
   return out;
  }
