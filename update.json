@@ -2,14 +2,14 @@
   "schema": 1,
   "releases": [
     {
-      "tag_name": "v0.9.30",
-      "body": "修复旧缓存导致误判已是最新版：检查时使用独立缓存标识，未发现新版时继续核对发布记录；网络失败会提示无法确认，保留已发现的新版本。",
+      "tag_name": "v0.9.31",
+      "body": "课表显示统一为周课表表格和每日列表。周视图可换周，列表可换日期；菜单独占组件防止点穿，放大三点、日期和关闭按钮，改善小组件触摸。",
       "assets": [
         {
-          "name": "RainReminder-0.9.30-test.apk",
-          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.30/RainReminder-0.9.30-test.apk",
+          "name": "RainReminder-0.9.31-test.apk",
+          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.31/RainReminder-0.9.31-test.apk",
           "size": 21470186,
-          "digest": "sha256:1a3ba50a8bd318655e387a6c09c7e70d042b90c655db26d0829b0f5e262f619d"
+          "digest": "sha256:d86ccf2e4b4949b36358b448631487c4bb14a80550e81f612567ea43d261258a"
         }
       ]
     }
