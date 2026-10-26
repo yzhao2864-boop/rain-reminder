@@ -2,14 +2,14 @@
   "schema": 1,
   "releases": [
     {
-      "tag_name": "v0.9.32",
-      "body": "修复周课表日期栏重复和正文不显示的组件渲染；较矮双区域组件保留作业摘要。",
+      "tag_name": "v0.9.33",
+      "body": "作业优先直接显示可滚动课程列表，零作业时释放空白区域，支持切换课程日期。",
       "assets": [
         {
-          "name": "RainReminder-0.9.32-test.apk",
-          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.32/RainReminder-0.9.32-test.apk",
-          "size": 21474444,
-          "digest": "sha256:a9d24551b1d4e599bdbccb555cb9fb0f6d2b17cdb01a0e7dd42659dcc2e1a029"
+          "name": "RainReminder-0.9.33-test.apk",
+          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.33/RainReminder-0.9.33-test.apk",
+          "size": 21478716,
+          "digest": "sha256:144aecda08bacc06f7a46e61ab6b10c8bfa7041e2e2ed543f79b2808056f0cfd"
         }
       ]
     }
