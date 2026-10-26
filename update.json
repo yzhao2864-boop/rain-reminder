@@ -2,14 +2,14 @@
   "schema": 1,
   "releases": [
     {
-      "tag_name": "v0.9.33",
-      "body": "作业优先直接显示可滚动课程列表，零作业时释放空白区域，支持切换课程日期。",
+      "tag_name": "v0.9.34",
+      "body": "小组件按下课时间自动隐藏已结束课程，保留进行中及未开始课程，完整课表不删除。",
       "assets": [
         {
-          "name": "RainReminder-0.9.33-test.apk",
-          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.33/RainReminder-0.9.33-test.apk",
+          "name": "RainReminder-0.9.34-test.apk",
+          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.34/RainReminder-0.9.34-test.apk",
           "size": 21478716,
-          "digest": "sha256:144aecda08bacc06f7a46e61ab6b10c8bfa7041e2e2ed543f79b2808056f0cfd"
+          "digest": "sha256:15ef4ff437a66761ce4c7986532976a605d2154261bd880123ceaccfa9961d25"
         }
       ]
     }
