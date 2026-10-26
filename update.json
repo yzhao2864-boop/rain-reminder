@@ -2,14 +2,14 @@
   "schema": 1,
   "releases": [
     {
-      "tag_name": "v0.9.29",
-      "body": "小组件右上角⋯可直接展开切换显示选项，选择后自动收起；每日课表支持上下滑动查看不同天，底部作业独立滑动。",
+      "tag_name": "v0.9.30",
+      "body": "修复旧缓存导致误判已是最新版：检查时使用独立缓存标识，未发现新版时继续核对发布记录；网络失败会提示无法确认，保留已发现的新版本。",
       "assets": [
         {
-          "name": "RainReminder-0.9.29-test.apk",
-          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.29/RainReminder-0.9.29-test.apk",
+          "name": "RainReminder-0.9.30-test.apk",
+          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.30/RainReminder-0.9.30-test.apk",
           "size": 21470186,
-          "digest": "sha256:fb37227e7429db77e4e92121439d5af9ccf525c0f7b80763e6b718d79f1f73c7"
+          "digest": "sha256:1a3ba50a8bd318655e387a6c09c7e70d042b90c655db26d0829b0f5e262f619d"
         }
       ]
     }
