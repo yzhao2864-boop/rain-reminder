@@ -2,14 +2,14 @@
   "schema": 1,
   "releases": [
     {
-      "tag_name": "v0.9.31",
-      "body": "课表显示统一为周课表表格和每日列表。周视图可换周，列表可换日期；菜单独占组件防止点穿，放大三点、日期和关闭按钮，改善小组件触摸。",
+      "tag_name": "v0.9.32",
+      "body": "修复周课表日期栏重复和正文不显示的组件渲染；较矮双区域组件保留作业摘要。",
       "assets": [
         {
-          "name": "RainReminder-0.9.31-test.apk",
-          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.31/RainReminder-0.9.31-test.apk",
-          "size": 21470186,
-          "digest": "sha256:d86ccf2e4b4949b36358b448631487c4bb14a80550e81f612567ea43d261258a"
+          "name": "RainReminder-0.9.32-test.apk",
+          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.32/RainReminder-0.9.32-test.apk",
+          "size": 21474444,
+          "digest": "sha256:a9d24551b1d4e599bdbccb555cb9fb0f6d2b17cdb01a0e7dd42659dcc2e1a029"
         }
       ]
     }
