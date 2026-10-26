@@ -2,14 +2,14 @@
   "schema": 1,
   "releases": [
     {
-      "tag_name": "v0.9.28",
-      "body": "新增可上下滑动的作业和课程列表，两个区域独立；支持单日课表格及日期切换。作业可移到底部淡化并从小组件隐藏，支持恢复。",
+      "tag_name": "v0.9.29",
+      "body": "小组件右上角⋯可直接展开切换显示选项，选择后自动收起；每日课表支持上下滑动查看不同天，底部作业独立滑动。",
       "assets": [
         {
-          "name": "RainReminder-0.9.28-test.apk",
-          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.28/RainReminder-0.9.28-test.apk",
-          "size": 21466014,
-          "digest": "sha256:53c6fc72d909ace312974a1a79164c9b662fa9c6565d15425b97351603dcc321"
+          "name": "RainReminder-0.9.29-test.apk",
+          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.29/RainReminder-0.9.29-test.apk",
+          "size": 21470186,
+          "digest": "sha256:fb37227e7429db77e4e92121439d5af9ccf525c0f7b80763e6b718d79f1f73c7"
         }
       ]
     }
