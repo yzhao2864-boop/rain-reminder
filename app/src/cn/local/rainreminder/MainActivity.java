@@ -19,6 +19,9 @@ import java.io.*;
 public class MainActivity extends Activity {
  final int green=Color.rgb(33,92,82),ink=Color.rgb(29,43,40),muted=Color.rgb(92,109,102);
  boolean examsTab;TextView examOverview,examInfo;LinearLayout examList;LinearLayout root,list,updateBox;TextView overview,status,loginTip,tasksHeading;Button checkButton;ProgressBar checkProgress;Scanner scanner;WebView login;boolean checking=false,loginOnly=false,confirmingLogin=false,loggingOut=false;final Runnable updateListener=()->renderUpdateBanner();final Runnable scanListener=()->{if(login==null&&status!=null&&!isDestroyed()){renderStatus();if(list!=null)renderTasks();}};String mobileScript;int loginGeneration=0;LinearLayout liveBox;boolean watching=false;final Handler watchHandler=new Handler(Looper.getMainLooper());final Runnable watchTick=new Runnable(){public void run(){refreshOpenClasses();watchHandler.postDelayed(this,60000);}};
+ final Map<TextView,JSONObject> deadlineLabels=new HashMap<>();AlertDialog taskDialog;JSONObject dialogTask;
+ final Runnable deadlineTick=new Runnable(){public void run(){refreshDeadlines();watchHandler.postDelayed(this,1000);}};
+ void refreshDeadlines(){if(login!=null||examsTab)return;for(Map.Entry<TextView,JSONObject> entry:deadlineLabels.entrySet()){String value=Deadlines.label(entry.getValue());if(!value.contentEquals(entry.getKey().getText()))entry.getKey().setText(value);}if(taskDialog!=null&&taskDialog.isShowing()&&dialogTask!=null){TextView message=taskDialog.findViewById(android.R.id.message);String value=Deadlines.label(dialogTask)+"\n\n"+dialogTask.optString("detail");if(message!=null&&!value.contentEquals(message.getText()))message.setText(value);}}
  public void onCreate(Bundle b){super.onCreate(b);getWindow().setStatusBarColor(green);getWindow().setNavigationBarColor(Color.rgb(244,247,242));Agenda.schedule(this);examsTab=b!=null&&b.getBoolean("examsTab",false);home();accountAction(getIntent());}
  protected void onSaveInstanceState(Bundle b){super.onSaveInstanceState(b);b.putBoolean("examsTab",examsTab);}
  int dp(int x){return (int)(x*getResources().getDisplayMetrics().density);}
@@ -53,7 +56,7 @@ public class MainActivity extends Activity {
  void renderStatus(){if(status==null)return;boolean active=checking||Scanner.running();if(overview!=null)overview.setText(active?"正在检查作业":Store.prefs(this).getLong("last",0)>0?Store.tasks(this).length()+" 项待交作业":"记住每一份作业");String s=active?"正在检查，请稍候…":Store.prefs(this).getString("status","登录后可读取自己的待交作业。");long last=Store.prefs(this).getLong("last",0);if(last>0)s+="\n上次成功："+format(last);long next=Store.prefs(this).getLong("next",0);if(Store.prefs(this).getBoolean("enabled",false)&&next>0)s+="\n下次计划："+format(next)+" 后";if(Build.VERSION.SDK_INT>=33&&checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS)!=android.content.pm.PackageManager.PERMISSION_GRANTED)s+="\n通知尚未允许，请在应用设置中开启";status.setText(s);if(checkButton!=null){checkButton.setEnabled(!active);checkButton.setText(active?"正在检查…":Store.prefs(this).getLong("last",0)==0?"登录雨课堂":"检查最新作业");}if(checkProgress!=null)checkProgress.setVisibility(active?View.VISIBLE:View.GONE);}
  String format(long n){return new SimpleDateFormat("MM-dd HH:mm",Locale.CHINA).format(new Date(n));}
  void renderTasks(){
-  if(list==null)return;boolean active=checking||Scanner.running();list.removeAllViews();JSONArray tasks=HomeworkDisplay.visible(this),dimmed=HomeworkDisplay.dimmed(this);
+  if(list==null)return;boolean active=checking||Scanner.running();deadlineLabels.clear();list.removeAllViews();JSONArray tasks=HomeworkDisplay.visible(this),dimmed=HomeworkDisplay.dimmed(this);
   if(tasksHeading!=null)tasksHeading.setText("待交作业"+(tasks.length()>0?" · "+tasks.length():""));
   if(tasks.length()==0){LinearLayout empty=Ui.card(this,list);empty.setGravity(Gravity.CENTER);empty.setPadding(dp(18),dp(24),dp(18),dp(24));empty.addView(text(active?"正在获取最新作业":dimmed.length()>0?"当前作业均已淡化":Store.prefs(this).getLong("last",0)>0?"暂无待交作业":"登录后查看作业",17,ink));empty.addView(Ui.hint(this,active?"检查完成后会显示结果，请稍候。":dimmed.length()>0?"在下方查看或恢复，提交状态未改变。":Store.prefs(this).getLong("last",0)>0?"以最近一次成功检查为准":"登录自己的雨课堂账号即可检查。"));}
   if(active)list.addView(Ui.hint(this,"正在更新，下面保留上次成功检查的结果。"));
@@ -62,11 +65,11 @@ public class MainActivity extends Activity {
  }
  void taskCard(JSONObject task,boolean dimmed){
   if(task==null)return;LinearLayout card=Ui.card(this,list);if(dimmed)card.setBackground(Ui.bg(this,0xFFF0F1F3));
-  if(!task.optString("course").isEmpty())card.addView(text(task.optString("course"),11,muted));TextView title=text(task.optString("title"),17,dimmed?muted:ink);title.setTypeface(Ui.strong(this));card.addView(title);card.addView(text(Deadlines.label(task),12,dimmed?muted:green));
+  if(!task.optString("course").isEmpty())card.addView(text(task.optString("course"),11,muted));TextView title=text(task.optString("title"),17,dimmed?muted:ink);title.setTypeface(Ui.strong(this));card.addView(title);TextView deadlineView=text(Deadlines.label(task),12,dimmed?muted:green);card.addView(deadlineView);deadlineLabels.put(deadlineView,task);
   if(dimmed)card.addView(text("已淡化 · 点击可恢复",11,muted));card.setFocusable(true);card.setContentDescription(task.optString("title")+"，"+Deadlines.label(task)+(dimmed?"，已淡化，点击可恢复":"，点击查看详情，长按可淡化"));
-  card.setOnClickListener(v->new AlertDialog.Builder(this).setTitle(task.optString("title")).setMessage(task.optString("detail"))
+  card.setOnClickListener(v->{dialogTask=task;taskDialog=new AlertDialog.Builder(this).setTitle(task.optString("title")).setMessage(Deadlines.label(task)+"\n\n"+task.optString("detail"))
    .setPositiveButton(Deadlines.due(task)==Long.MAX_VALUE?"核对截止时间":"打开官网",(d,n)->openLogin(task.optString("url",Scanner.HOME)))
-   .setNeutralButton(dimmed?"恢复正常显示":"淡化并从组件隐藏",(d,n)->changeTaskDisplay(task,!dimmed)).setNegativeButton("关闭",null).show());
+   .setNeutralButton(dimmed?"恢复正常显示":"淡化并从组件隐藏",(d,n)->changeTaskDisplay(task,!dimmed)).setNegativeButton("关闭",null).show();taskDialog.setOnDismissListener(d->{taskDialog=null;dialogTask=null;});});
   card.setOnLongClickListener(v->{new AlertDialog.Builder(this).setTitle(task.optString("title")).setItems(new String[]{dimmed?"恢复正常显示":"移到底部并从小组件隐藏"},(d,n)->changeTaskDisplay(task,!dimmed)).setNegativeButton("取消",null).show();return true;});
  }
  void changeTaskDisplay(JSONObject task,boolean hidden){HomeworkDisplay.set(this,task,hidden);Ui.keepScroll(this,this::renderTasks);Toast.makeText(this,hidden?"已放到底部，小组件不再显示":"已恢复正常显示",Toast.LENGTH_SHORT).show();}
@@ -121,7 +124,7 @@ public class MainActivity extends Activity {
   CookieManager.getInstance().removeAllCookies(removed->{CookieManager.getInstance().flush();loggingOut=false;if(!isFinishing()&&!isDestroyed()){home();Toast.makeText(this,"已退出本机账号",0).show();}});
  }
  @Override public void onBackPressed(){if(loggingOut)return;if(login!=null)closeLogin(false);else super.onBackPressed();}
- @Override protected void onPause(){Scanner.STATE_LISTENERS.remove(scanListener);AppUpdates.listeners.remove(updateListener);watchHandler.removeCallbacks(watchTick);super.onPause();}
- @Override protected void onResume(){super.onResume();Scanner.STATE_LISTENERS.add(scanListener);AppUpdates.listeners.add(updateListener);AppUpdates.maybeCheck(this);renderUpdateBanner();if(examsTab&&examList!=null)renderExams();watchHandler.removeCallbacks(watchTick);watchHandler.post(watchTick);if(login==null&&status!=null){renderStatus();if(list!=null)renderTasks();}}
- @Override protected void onDestroy(){watchHandler.removeCallbacks(watchTick);loginGeneration++;if(scanner!=null)scanner.cancel();if(login!=null){login.destroy();login=null;}super.onDestroy();}
+ @Override protected void onPause(){Scanner.STATE_LISTENERS.remove(scanListener);AppUpdates.listeners.remove(updateListener);watchHandler.removeCallbacks(watchTick);watchHandler.removeCallbacks(deadlineTick);super.onPause();}
+ @Override protected void onResume(){super.onResume();Scanner.STATE_LISTENERS.add(scanListener);AppUpdates.listeners.add(updateListener);AppUpdates.maybeCheck(this);renderUpdateBanner();if(examsTab&&examList!=null)renderExams();watchHandler.removeCallbacks(watchTick);watchHandler.post(watchTick);watchHandler.removeCallbacks(deadlineTick);watchHandler.post(deadlineTick);if(login==null&&status!=null){renderStatus();if(list!=null)renderTasks();}}
+ @Override protected void onDestroy(){watchHandler.removeCallbacks(watchTick);watchHandler.removeCallbacks(deadlineTick);deadlineLabels.clear();loginGeneration++;if(scanner!=null)scanner.cancel();if(login!=null){login.destroy();login=null;}super.onDestroy();}
 }
