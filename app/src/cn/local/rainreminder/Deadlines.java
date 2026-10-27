@@ -15,7 +15,7 @@ final class Deadlines {
    date=AFTER.matcher(text);boolean found=false;
    while(date.find()){
     String prefix=text.substring(Math.max(0,date.start()-24),date.start());
-    if(!Pattern.compile("(?:发布(?:时间|日期)?|开始(?:时间|日期)?|创建(?:时间|日期)?)[：:\\s]*$").matcher(prefix).find()){found=true;break;}
+    if(!Pattern.compile("(?<![未不])(?:发布(?:时间|日期)?|开始(?:时间|日期)?|创建(?:时间|日期)?)[：:\\s]*$").matcher(prefix).find()){found=true;break;}
    }
    if(!found)return Long.MAX_VALUE;
   }

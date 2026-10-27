@@ -5,7 +5,7 @@ if(!$SdkRoot){$SdkRoot=$env:ANDROID_HOME}
 if(!$SdkRoot){throw 'Set ANDROID_SDK_ROOT or pass -SdkRoot.'}
 $localRoot=Join-Path $PSScriptRoot '../.local'
 if(!$KeyStore){$KeyStore=Join-Path $localRoot 'development.keystore'}
-if(!$OutputApk){$OutputApk=Join-Path $localRoot 'RainReminder-0.9.35-test.apk'}
+if(!$OutputApk){$OutputApk=Join-Path $localRoot 'RainReminder-0.9.36-test.apk'}
 New-Item -ItemType Directory -Force (Split-Path $KeyStore -Parent),(Split-Path $OutputApk -Parent) | Out-Null
 $SdkRoot=(Resolve-Path $SdkRoot).Path
 $tools=Join-Path $SdkRoot 'build-tools/35.0.0'
