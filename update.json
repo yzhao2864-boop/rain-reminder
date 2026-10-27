@@ -1,17 +1,17 @@
 {
+  "schema": 1,
   "releases": [
     {
+      "tag_name": "v0.9.37",
+      "body": "截止时间新增动态倒计时：按剩余时间显示几天几小时几分钟、几小时几分钟或几分钟，保留准确截止日期。\n不足一分钟显示不足1分钟后结束，到期显示已截止。作业页和详情自动刷新，小组件同步使用新格式。\n通过16项倒计时检查及45项原有功能回归检查。覆盖安装保留本机数据。",
       "assets": [
         {
-          "digest": "sha256:19c8be1bb87c24718f802e59128cf7098f16def7f2e89510a0c0d1da812fb229",
-          "name": "RainReminder-0.9.36-test.apk",
+          "name": "RainReminder-0.9.37-test.apk",
+          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.37/RainReminder-0.9.37-test.apk",
           "size": 21491004,
-          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.36/RainReminder-0.9.36-test.apk"
+          "digest": "sha256:b0f8406a1972cf0eef4165968a6d68f30ce76d325c18f97736d5c2eb7a9777f3"
         }
-      ],
-      "body": "修复未开始作业的截止日期识别；课表提醒状态提示可关闭；截图支持多选和分次追加后统一识别。",
-      "tag_name": "v0.9.36"
+      ]
     }
-  ],
-  "schema": 1
+  ]
 }
