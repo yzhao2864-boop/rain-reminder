@@ -2,14 +2,14 @@
   "schema": 1,
   "releases": [
     {
-      "tag_name": "v0.9.34",
-      "body": "小组件按下课时间自动隐藏已结束课程，保留进行中及未开始课程，完整课表不删除。",
+      "tag_name": "v0.9.35",
+      "body": "修复课程通知独立排程及延迟补发；支持实验预约列表截图导入，按学期周次换算日期，作业截止时间自动读取。",
       "assets": [
         {
-          "name": "RainReminder-0.9.34-test.apk",
-          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.34/RainReminder-0.9.34-test.apk",
-          "size": 21478716,
-          "digest": "sha256:15ef4ff437a66761ce4c7986532976a605d2154261bd880123ceaccfa9961d25"
+          "name": "RainReminder-0.9.35-test.apk",
+          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.35/RainReminder-0.9.35-test.apk",
+          "size": 21491004,
+          "digest": "sha256:132c36ff687a43540eb4e85ec9c4ddebfc4723b994e2e00951f4dd4e7c6388dc"
         }
       ]
     }
