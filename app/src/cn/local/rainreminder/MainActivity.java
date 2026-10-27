@@ -65,7 +65,7 @@ public class MainActivity extends Activity {
   if(!task.optString("course").isEmpty())card.addView(text(task.optString("course"),11,muted));TextView title=text(task.optString("title"),17,dimmed?muted:ink);title.setTypeface(Ui.strong(this));card.addView(title);card.addView(text(Deadlines.label(task),12,dimmed?muted:green));
   if(dimmed)card.addView(text("已淡化 · 点击可恢复",11,muted));card.setFocusable(true);card.setContentDescription(task.optString("title")+"，"+Deadlines.label(task)+(dimmed?"，已淡化，点击可恢复":"，点击查看详情，长按可淡化"));
   card.setOnClickListener(v->new AlertDialog.Builder(this).setTitle(task.optString("title")).setMessage(task.optString("detail"))
-   .setPositiveButton("到官网核对",(d,n)->openLogin(task.optString("url",Scanner.HOME)))
+   .setPositiveButton(Deadlines.due(task)==Long.MAX_VALUE?"核对截止时间":"打开官网",(d,n)->openLogin(task.optString("url",Scanner.HOME)))
    .setNeutralButton(dimmed?"恢复正常显示":"淡化并从组件隐藏",(d,n)->changeTaskDisplay(task,!dimmed)).setNegativeButton("关闭",null).show());
   card.setOnLongClickListener(v->{new AlertDialog.Builder(this).setTitle(task.optString("title")).setItems(new String[]{dimmed?"恢复正常显示":"移到底部并从小组件隐藏"},(d,n)->changeTaskDisplay(task,!dimmed)).setNegativeButton("取消",null).show();return true;});
  }

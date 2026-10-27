@@ -1,4 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="cn.local.rainreminder" android:versionCode="44" android:versionName="0.9.34">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="cn.local.rainreminder" android:versionCode="45" android:versionName="0.9.35">
  <uses-sdk android:minSdkVersion="28" android:targetSdkVersion="35"/>
  <uses-permission android:name="android.permission.INTERNET"/>
  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -25,6 +25,6 @@
   <activity android:name=".ImportActivity" android:exported="false" android:configChanges="orientation|screenSize"/>
   <receiver android:name=".RainWidget" android:exported="false" android:label="@string/widget_name"><intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE"/></intent-filter><meta-data android:name="android.appwidget.provider" android:resource="@xml/rain_widget_info"/></receiver>
   <receiver android:name=".AgendaReceiver" android:exported="false"/>
-  <receiver android:name=".BootReceiver" android:exported="false"><intent-filter><action android:name="android.intent.action.BOOT_COMPLETED"/><action android:name="android.intent.action.TIME_SET"/><action android:name="android.intent.action.TIMEZONE_CHANGED"/><action android:name="android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED"/></intent-filter></receiver>
+  <receiver android:name=".BootReceiver" android:exported="false"><intent-filter><action android:name="android.intent.action.BOOT_COMPLETED"/><action android:name="android.intent.action.MY_PACKAGE_REPLACED"/><action android:name="android.intent.action.TIME_SET"/><action android:name="android.intent.action.TIMEZONE_CHANGED"/><action android:name="android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED"/></intent-filter></receiver>
  </application>
 </manifest>
