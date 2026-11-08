@@ -33,6 +33,7 @@ public class ProfileActivity extends Activity {
   Ui.link(this,settings,"提醒与检查设置  ›",()->startActivity(new Intent(this,SettingsActivity.class)));
   Ui.link(this,settings,"桌面小组件  ›",()->startActivity(new Intent(this,WidgetSettingsActivity.class)));
   Ui.link(this,settings,"应用更新  ›",()->startActivity(new Intent(this,UpdateActivity.class)));
+  Ui.link(this,settings,"导出作业与课表  ›",()->DataExport.share(this));
   TextView footer=Ui.hint(this,"待课 "+AppUpdates.version(this)+" · 测试版\n非官方应用 · 课表和作业数据仅存本机");footer.setGravity(Gravity.CENTER);footer.setPadding(0,Ui.dp(this,22),0,0);root.addView(footer);
  }
  void profileMenu(){new AlertDialog.Builder(this).setTitle("头像与名字").setItems(new String[]{"修改名字","从相册更换头像","恢复雨课堂头像和名字","同步雨课堂资料"},(d,n)->{if(n==0)editNickname();else if(n==1){try{startActivityForResult(new Intent(Intent.ACTION_OPEN_DOCUMENT).setType("image/*").addCategory(Intent.CATEGORY_OPENABLE),41);}catch(Exception e){Toast.makeText(this,"无法打开图片选择器",1).show();}}else if(n==2)new AlertDialog.Builder(this).setTitle("恢复雨课堂资料？").setMessage("移除本机自定义头像和名字，使用最近同步的雨课堂资料。").setPositiveButton("恢复",(dialog,which)->{AccountProfile.reset(this);Ui.keepScroll(this,this::show);}).setNegativeButton("取消",null).show();else syncProfile();}).show();}
