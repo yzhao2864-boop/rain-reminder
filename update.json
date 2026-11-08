@@ -2,6 +2,18 @@
   "schema": 1,
   "releases": [
     {
+      "tag_name": "v0.9.38",
+      "body": "新增数据导出：在「我的 → 设置与服务」点「导出作业与课表」，可将未完成作业、课表、考试与日程导出为 JSON 文件，并通过系统分享发送。\n覆盖安装保留本机数据。",
+      "assets": [
+        {
+          "name": "RainReminder-0.9.38-test.apk",
+          "browser_download_url": "https://github.com/yzhao2864-boop/rain-reminder/releases/download/v0.9.38/RainReminder-0.9.38-test.apk",
+          "size": 21495100,
+          "digest": "sha256:6d6ba9d1808a21c6a844854b35dd32f96daf58d1faae93046e0d485dc4a9f106"
+        }
+      ]
+    },
+    {
       "tag_name": "v0.9.37",
       "body": "截止时间新增动态倒计时：按剩余时间显示几天几小时几分钟、几小时几分钟或几分钟，保留准确截止日期。\n不足一分钟显示不足1分钟后结束，到期显示已截止。作业页和详情自动刷新，小组件同步使用新格式。\n通过16项倒计时检查及45项原有功能回归检查。覆盖安装保留本机数据。",
       "assets": [
